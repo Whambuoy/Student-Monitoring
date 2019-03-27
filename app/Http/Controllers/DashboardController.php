@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\personal_info;
 
 class DashboardController extends Controller
 {
@@ -24,5 +25,26 @@ class DashboardController extends Controller
     public function index()
     {
         return view('dashboard.index');
+    }
+    public function create()
+    {
+        return view('dashboard.create');
+    }
+
+    public function store(Request $request)
+    {
+        $personal_info = new personal_info;
+
+        $personal_info->reg_no = $request->input('reg_no');
+        $personal_info->student_name = $request->input('student_name');
+        $personal_info->gender = $request->input('gender');
+        $personal_info->date_of_birth = $request->input('date_of_birth');
+        $personal_info->date_of_admission = $request->input('date_of_admission');
+        $personal_info->course = $request->input('course');
+        $personal_info->parent_name = $request->input('parent_name');
+        $personal_info->parent_phone = $request->input('parent_phone');
+
+        $personal_info->save();
+        return redirect('dashboard.index');
     }
 }
