@@ -25,8 +25,6 @@
     </ul>
     <div class="tab-content" id="myTabContent">
         @yield('dashContent')
-      <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">Under construction</div>
-      <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">Under construction</div>
     </div>
 
 </div>
