@@ -1,5 +1,5 @@
-@extends('dashboard.index')
-@section('dashContent')
+@extends('layouts.admin')
+@section('content')
 <div class="tab-pane fade show active" id="add" role="tabpanel" aria-labelledby="home-tab">
     <form class="container" method="post" action="store">
         {{ csrf_field() }}
