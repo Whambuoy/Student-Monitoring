@@ -257,6 +257,7 @@
 
     <!-- Main content -->
     <section class="content container-fluid">
+      @include('inc.messages')
       @yield('content')
     </section>
     <!-- /.content -->
