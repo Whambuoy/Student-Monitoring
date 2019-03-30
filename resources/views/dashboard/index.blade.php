@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container">
@@ -7,9 +7,9 @@
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Personal Information</a>
         <div class="dropdown-menu">
           <a class="dropdown-item" href="/create">Add</a>
-          <a class="dropdown-item" href="#">Update</a>
+          <a class="dropdown-item" href="/update">Update</a>
           <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">Delete</a>
+          <a class="dropdown-item" href="/dashboard">Show all</a>
         </div>
       </li>
       </li>
@@ -24,7 +24,13 @@
       </li>
     </ul>
     <div class="tab-content" id="myTabContent">
-        @yield('dashContent')
+        @yield('personalInfo')
+    </div>
+    <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+        @yield('academics')
+    </div>
+    <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+        @yield('financial')
     </div>
 
 </div>

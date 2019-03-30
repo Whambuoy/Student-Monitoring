@@ -46,6 +46,11 @@ class DashboardController extends Controller
         $personal_info->parent_phone = $request->input('parent_phone');
 
         $personal_info->save();
-        return redirect('dashboard.index');
+        return redirect('dashboard');
+    }
+    public function edit($id)
+    {
+        $student = personal_info::find($id);
+        return view('dashboard.update')->with('student', $student);
     }
 }

@@ -1,5 +1,5 @@
-@extends('dashboard.index')
-@section('dashContent')
+@extends('layouts.admin')
+@section('content')
 <div class="container">
 	<h1>Students</h1>
 	<table class="table table-striped">
