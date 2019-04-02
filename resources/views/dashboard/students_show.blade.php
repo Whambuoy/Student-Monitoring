@@ -7,7 +7,7 @@
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto ml-auto">
+    <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a href="/student/add"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add student</button></a>
     </form>
@@ -41,7 +41,7 @@
 					<th>{{$student->course}}</th>
 					<th>{{$student->parent_name}}</th>
 					<th>{{$student->parent_phone}}</th>
-					<th><a class="btn btn-primary" href="#">Edit</a></th>
+					<th><a class="btn btn-primary" href="/student/{{$student->id}}/edit">Edit</a></th>
 				</tr>
 			@endforeach
 		@else

@@ -64,9 +64,39 @@ class DashboardController extends Controller
         $personal_info->save();
         return redirect('dashboard')->with('success', 'Student added successfully');
     }
-    public function edit($id)
+
+    public function student_edit($id)
     {
         $student = personal_info::find($id);
-        return view('dashboard.update')->with('student', $student);
+        return view('dashboard.student_edit')->with('student', $student);
+    }
+
+    public function student_update(Request $request, $id)
+    {
+        //validate that every field is filled before submitting
+        $this->validate($request,[
+            'reg_no' => 'required',
+            'student_name' => 'required',
+            'gender' => 'required',
+            'date_of_birth' => 'required',
+            'date_of_admission' => 'required',
+            'course' => 'required',
+            'parent_name' => 'required',
+            'parent_phone' => 'required'
+        ]);
+
+        $personal_info = personal_info::find($id);
+
+        $personal_info->reg_no = $request->input('reg_no');
+        $personal_info->student_name = $request->input('student_name');
+        $personal_info->gender = $request->input('gender');
+        $personal_info->date_of_birth = $request->input('date_of_birth');
+        $personal_info->date_of_admission = $request->input('date_of_admission');
+        $personal_info->course = $request->input('course');
+        $personal_info->parent_name = $request->input('parent_name');
+        $personal_info->parent_phone = $request->input('parent_phone');
+
+        $personal_info->save();
+        return redirect('student')->with('success', 'Student personal information updated successfully');
     }
 }

@@ -23,11 +23,11 @@
                 </div>
                 <div class="form-group col-md-4">
                     <label for="link">Date of Birth</label>
-                    <input name="date_of_birth" type="date" class="form-control" id="link" placeholder="https://youtu.be/9q0vXviGToM">
+                    <input name="date_of_birth" type="date" class="form-control" id="link"> 
                 </div>
                 <div class="form-group col-md-4">
                     <label for="link">Date of Admission</label>
-                    <input name="date_of_admission" type="date" class="form-control" id="link" placeholder="https://youtu.be/9q0vXviGToM">
+                    <input name="date_of_admission" type="date" class="form-control" id="link">
                 </div>
             </div>
             <div class="form-group">
