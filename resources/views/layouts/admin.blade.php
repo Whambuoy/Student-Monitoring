@@ -14,7 +14,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="admin-lte/plugins/font-awesome/css/font-awesome.min.css">
-  <link rel="stylesheet" type="text/css" href="css/app.css">
+  <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css')}}">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
 <body class="hold-transition sidebar-mini">
@@ -55,7 +55,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="admin-lte/dist/img/prof.png" class="img-circle elevation-2" alt="User Image">
+          <img src="{{asset ('admin-lte/dist/img/prof.png')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
           <a href="#" class="d-block">System Admin</a>
@@ -76,14 +76,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="/dashboard" class="nav-link active">
-                  <i class="fa fa-circle-o nav-icon"></i>
+                  <i class="fa fa-bar-chart nav-icon"></i>
                   <p>Analytics</p>
                 </a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a href="/students" class="nav-link">
+            <a href="/student" class="nav-link">
               <i class="nav-icon fa fa-list"></i>
               <p>
                 Students
@@ -156,7 +156,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </div>
 <!-- ./wrapper -->
 
-<script type="text/javascript" src="js/app.js"></script>
+<script type="text/javascript" src="{{asset ('js/app.js')}}"></script>
 
 </body>
 </html>

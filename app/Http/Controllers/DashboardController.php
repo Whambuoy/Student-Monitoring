@@ -31,12 +31,12 @@ class DashboardController extends Controller
         $students = personal_info::all(); 
         return view('dashboard.students_show')->with('students', $students);
     }
-    public function create()
+    public function student_add()
     {
-        return view('dashboard.create');
+        return view('dashboard.student_add');
     }
 
-    public function store(Request $request)
+    public function student_store(Request $request)
     {
         //validate that every field is filled before submitting
         $this->validate($request,[

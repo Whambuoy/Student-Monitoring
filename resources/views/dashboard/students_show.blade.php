@@ -9,7 +9,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto ml-auto">
       <li class="nav-item active">
-        <a href="/create"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add student</button></a>
+        <a href="/student/add"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add student</button></a>
     </form>
       </li>
     </ul>
