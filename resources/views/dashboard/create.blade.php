@@ -1,9 +1,7 @@
 @extends('layouts.admin')
 @section('content')
-<div class="tab-pane fade show active" id="add" role="tabpanel" aria-labelledby="home-tab">
-    <form class="container" method="post" action="store">
+    <form method="post" action="store">
         {{ csrf_field() }}
-        <br>
         <h2>Student Information</h2>
             <div class="form-row">
                 <div class="form-group col-md-3">
@@ -51,5 +49,4 @@
             <br>
             <button type="submit" class="btn btn-success">Submit</button>
     </form>
-</div>
 @endsection

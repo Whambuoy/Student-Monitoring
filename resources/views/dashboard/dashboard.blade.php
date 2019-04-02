@@ -23,7 +23,6 @@
 					<th>{{$student->course}}</th>
 					<th>{{$student->parent_name}}</th>
 					<th>{{$student->parent_phone}}</th>
-					<th><a href="#">Edit</a></th>
 				</tr>
 			@endforeach
 		@else
