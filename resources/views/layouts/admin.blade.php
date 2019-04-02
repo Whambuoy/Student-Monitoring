@@ -75,7 +75,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="/dashboard" class="nav-link active">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>Analytics</p>
                 </a>
@@ -89,7 +89,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </ul>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
+            <a href="/students" class="nav-link">
               <i class="nav-icon fa fa-list"></i>
               <p>
                 Students

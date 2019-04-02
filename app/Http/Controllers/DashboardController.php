@@ -24,8 +24,12 @@ class DashboardController extends Controller
      */
     public function index()
     {
+        return view('dashboard.dashboard');
+    }
+    public function students_show()
+    {
         $students = personal_info::all(); 
-        return view('dashboard.dashboard')->with('students', $students);
+        return view('dashboard.students_show')->with('students', $students);
     }
     public function create()
     {
