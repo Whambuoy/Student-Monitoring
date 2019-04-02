@@ -31,8 +31,13 @@
                 </div>
             </div>
             <div class="form-group">
-                <label for="title">Course of Study</label>
-                <input value="{{$student->course}}" type="text" name="course" class="form-control" id="title" placeholder="Bachelor of Science in Computer Technology">
+                <label for="course">Course of Study</label>
+                    <select name="course" class="form-control" id="category">
+                    <option>Bsc. Computer Science</option>
+                    <option>Bsc. Computer Technology</option>
+                    <option>Bsc. Information Technology</option>
+                    <option>Bsc. Business Information Technology</option>
+                    </select>
             </div>
             <hr>
             <h2>Parent Information</h2>
