@@ -46,7 +46,7 @@ class DashboardController extends Controller
         $personal_info->parent_phone = $request->input('parent_phone');
 
         $personal_info->save();
-        return redirect('dashboard');
+        return redirect('dashboard')->with('success', 'Student added successfully');
     }
     public function edit($id)
     {
