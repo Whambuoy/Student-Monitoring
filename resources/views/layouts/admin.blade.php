@@ -13,7 +13,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <title>Student Progress Monitoring System</title>
 
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="admin-lte/plugins/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="{{asset ('admin-lte/plugins/font-awesome/css/font-awesome.min.css')}}">
   <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css')}}">
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 </head>
