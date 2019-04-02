@@ -48,5 +48,6 @@
             </div>
             <br>
             <button type="submit" class="btn btn-success">Submit</button>
+            <a href="/students" class="btn btn-secondary float-right">Back</a>
     </form>
 @endsection

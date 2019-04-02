@@ -33,10 +33,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Messages Dropdown Menu -->
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
-          <span>System Admin</span>
+          <span class="dropdown-toggle">System Admin</span>
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-header"><a>Log out</a></span>
+          <span class="dropdown-header"><a href="#" class="dropdown-item">Log out</a></span>
         </div>
       </li>
     </ul>
@@ -78,12 +78,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <a href="/dashboard" class="nav-link active">
                   <i class="fa fa-circle-o nav-icon"></i>
                   <p>Analytics</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="fa fa-circle-o nav-icon"></i>
-                  <p>Inactive Page</p>
                 </a>
               </li>
             </ul>

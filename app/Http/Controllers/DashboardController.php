@@ -38,6 +38,18 @@ class DashboardController extends Controller
 
     public function store(Request $request)
     {
+        //validate that every field is filled before submitting
+        $this->validate($request,[
+            'reg_no' => 'required',
+            'student_name' => 'required',
+            'gender' => 'required',
+            'date_of_birth' => 'required',
+            'date_of_admission' => 'required',
+            'course' => 'required',
+            'parent_name' => 'required',
+            'parent_phone' => 'required'
+        ]);
+
         $personal_info = new personal_info;
 
         $personal_info->reg_no = $request->input('reg_no');
