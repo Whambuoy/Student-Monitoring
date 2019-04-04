@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\personal_info;
-
+use App\Financials;
 class DashboardController extends Controller
 {
     /**
@@ -26,11 +26,13 @@ class DashboardController extends Controller
     {
         return view('dashboard.dashboard');
     }
+
     public function students_show()
     {
         $students = personal_info::all(); 
         return view('dashboard.students_show')->with('students', $students);
     }
+
     public function student_add()
     {
         return view('dashboard.student_add');
@@ -98,5 +100,10 @@ class DashboardController extends Controller
 
         $personal_info->save();
         return redirect('student')->with('success', 'Student personal information updated successfully');
+    }
+
+    public function financials_show(){
+        $financials = Financials::all();
+        return view('dashboard.financials_show')->with('financials', $financials);
     }
 }
