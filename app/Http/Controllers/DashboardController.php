@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\personal_info;
 use App\Financials;
+use App\Discipline;
+
 class DashboardController extends Controller
 {
     /**
@@ -51,7 +53,7 @@ class DashboardController extends Controller
             'parent_name' => 'required',
             'parent_phone' => 'required'
         ]);
-
+ 
         $personal_info = new personal_info;
 
         $personal_info->reg_no = $request->input('reg_no');
@@ -69,7 +71,7 @@ class DashboardController extends Controller
 
     public function student_edit($id)
     {
-        $student = personal_info::find($id);
+        $student = personal_info::findOrFail($id);
         return view('dashboard.student_edit')->with('student', $student);
     }
 
@@ -105,5 +107,10 @@ class DashboardController extends Controller
     public function financials_show(){
         $financials = Financials::all();
         return view('dashboard.financials_show')->with('financials', $financials);
+    }
+
+    public function discipline_show(){
+        $discipline = Discipline::all();
+        return view('dashboard.discipline_show')->with('discipline', $discipline);
     }
 }
