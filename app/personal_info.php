@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class personal_info extends Model
 {
     public function financials(){
-    	return $this->hasOne('App\personal_info');
+    	return $this->hasOne('App\Financials');
     }
 }

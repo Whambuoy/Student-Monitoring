@@ -109,8 +109,17 @@ class DashboardController extends Controller
         return view('dashboard.financials_show')->with('financials', $financials);
     }
 
+    public function discipline_update(){
+        //
+    }
     public function discipline_show(){
         $discipline = Discipline::all();
         return view('dashboard.discipline_show')->with('discipline', $discipline);
+    }
+
+    public function test(){
+        $financial = Financials::findorfail(2);
+        dd($financial)->student;
+        return view('dashboard.test');
     }
 }

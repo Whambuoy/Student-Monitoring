@@ -13,7 +13,7 @@
 		@if(count($financials)>0)
 			@foreach($financials as $financial)
 				<tr>
-					<th>{{$financial->reg_no}}</th>
+					<th>{{$financial->student->reg_no}}</th>
 					<th>{{$financial->student_name}}</th>
 					<th>{{$financial->amount_to_be_paid}}</th>
 					<th>{{$financial->amount_paid}}</th>
