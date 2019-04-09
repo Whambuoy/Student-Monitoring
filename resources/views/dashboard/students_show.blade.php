@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 <div class="container">
+	<h1>Personal Information</h1>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -19,7 +20,7 @@
     </form>
   </div>
 </nav>
-	<h1>Students</h1>
+
 	<table class="table table-striped">
 	    <tr>
 	        <th>Student name</th>
@@ -34,14 +35,14 @@
 		@if(count($students)>0)
 			@foreach($students as $student)
 				<tr>
-					<th>{{$student->student_name}}</th>
-					<th>{{$student->gender}}</th>
-					<th>{{$student->date_of_birth}}</th>
-					<th>{{$student->date_of_admission}}</th>
-					<th>{{$student->course}}</th>
-					<th>{{$student->parent_name}}</th>
-					<th>{{$student->parent_phone}}</th>
-					<th><a class="btn btn-primary" href="/student/{{$student->id}}/edit">Edit</a></th>
+					<td>{{$student->student_name}}</td>
+					<td>{{$student->gender}}</td>
+					<td>{{$student->date_of_birth}}</td>
+					<td>{{$student->date_of_admission}}</td>
+					<td>{{$student->course}}</td>
+					<td>{{$student->parent_name}}</td>
+					<td>{{$student->parent_phone}}</td>
+					<td><a class="btn btn-primary" href="/student/{{$student->id}}/edit">Edit</a></td>
 				</tr>
 			@endforeach
 		@else
