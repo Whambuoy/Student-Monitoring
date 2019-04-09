@@ -13,12 +13,12 @@
 		@if(count($financials)>0)
 			@foreach($financials as $financial)
 				<tr>
-					<th>{{$financial->student->reg_no}}</th>
+					<th>{{$financial->reg_no}}</th>
 					<th>{{$financial->student_name}}</th>
 					<th>{{$financial->amount_to_be_paid}}</th>
 					<th>{{$financial->amount_paid}}</th>
 					<th>{{$financial->balance}}</th>
-					<th><a class="btn btn-primary" href="#">Update</a></th>
+					<th><a class="btn btn-primary" href="/financials/1/edit">Update</a></th>
 				</tr>
 			@endforeach
 		@else

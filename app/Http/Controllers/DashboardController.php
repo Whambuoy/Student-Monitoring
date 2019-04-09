@@ -109,6 +109,26 @@ class DashboardController extends Controller
         return view('dashboard.financials_show')->with('financials', $financials);
     }
 
+    public function financials_edit(Request $request, $id){
+        $financial = Financials::findOrFail($id);
+        return view('dashboard.financials_edit')->with('financials', $financial);
+    }
+
+    public function financials_update(Request $request, $id){
+        $this->validate($request, [
+            'amount_to_be_paid' => 'required',
+            'amount_paid' => 'required'
+        ]);
+
+        $financial = new Financials;
+        $financial->amount_to_be_paid = $request->input('amount_to_be_paid');
+        $financial->amount_paid = $request->input('amount_paid');
+        $financial->balance = $financial->amount_to_be_paid - $financial->amount_paid;
+        $financial->save();
+
+        return redirect('/financials_show')->with('success', 'Financials successfully updated');
+    }
+
     public function discipline_update(){
         //
     }
