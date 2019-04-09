@@ -114,9 +114,30 @@ class DashboardController extends Controller
         return view('dashboard.financials_add')->with('students', $students);
     }
 
+    public function financials_store(Request $request){
+        $this->validate($request, [
+            'reg_no' => 'required',
+            'student_name' => 'required',
+            'amount_to_be_paid' => 'required',
+            'amount_paid' => 'required',
+            'balance' => 'required'
+        ]);
+
+        $financial = new Financials;
+        $financial->reg_no = $request->input('reg_no');
+        $financial->student_name = $request->input('student_name');
+        $financial->amount_to_be_paid = $request->input('amount_to_be_paid');
+        $financial->amount_paid = $request->input('amount_paid');
+        $financial->balance = $request->input('balance');
+        $financial->save();
+
+        return redirect('/financials')->with('success', "Financials successfully added");
+
+    }
+
     public function financials_edit(Request $request, $id){
         $financial = Financials::findOrFail($id);
-        return view('dashboard.financials_edit')->with('financials', $financial);
+        return view('dashboard.financials_edit')->with('financial', $financial);
     }
 
     public function financials_update(Request $request, $id){
@@ -126,12 +147,14 @@ class DashboardController extends Controller
         ]);
 
         $financial = new Financials;
+        $financial->reg_no = $request->input('reg_no');
+        $financial->student_name = $request->input('student_name');
         $financial->amount_to_be_paid = $request->input('amount_to_be_paid');
         $financial->amount_paid = $request->input('amount_paid');
-        $financial->balance = $financial->amount_to_be_paid - $financial->amount_paid;
+        $financial->balance = $request->input('balance');
         $financial->save();
 
-        return redirect('/financials_show')->with('success', 'Financials successfully updated');
+        return redirect('/financials')->with('success', 'Financials successfully updated');
     }
 
     public function discipline_update(){

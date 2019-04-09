@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-   <form method="post" action="/financials/1/update">
+   <form method="post" action="/financials/store">
         {{ csrf_field() }}
         <h2>Student Financial Information</h2>
             <div class="form-row">

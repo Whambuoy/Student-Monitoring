@@ -27,6 +27,7 @@ Route::post('/student/{id}/update', 'DashboardController@student_update');
 Route::get('/financials', 'DashboardController@financials_show');
 Route::get('/discipline', 'DashboardController@discipline_show');
 Route::get('/financials/add', 'DashboardController@financials_add');
+Route::post('/financials/store', 'DashboardController@financials_store');
 Route::get('/financials/{id}/edit', 'DashboardController@financials_edit');
 Route::post('/financials/{id}/update', 'DashboardController@financials_update');
 

@@ -39,7 +39,7 @@
 					<td>{{$financial->amount_to_be_paid}}</td>
 					<td>{{$financial->amount_paid}}</td>
 					<td>{{$financial->balance}}</td>
-					<td><a class="btn btn-primary" href="/financials/1/edit">Update</a></td>
+					<td><a class="btn btn-primary" href="/financials/{{$financial->id}}/edit">Update</a></td>
 				</tr>
 			@endforeach
 		@else
