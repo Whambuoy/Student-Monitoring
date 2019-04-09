@@ -19,16 +19,6 @@
                         @endif
                     </select>
                 </div>
-                    @foreach($students as $student)
-                        @if($student->reg_no == "<script>document.write(reg_no)</script>")
-                            $full_name = {{$student->student_name}};
-                            echo $full_name;
-                        @else
-                        <p>No record</p>
-
-                        @break
-                        @endif
-                    @endforeach
                 <div class="col-md-9">
                     <label for="title">Full name</label>
                     <input id="student_name" value="" type="text" name="student_name" class="form-control" placeholder="John Doe" readonly>
@@ -36,15 +26,15 @@
             </div>
         	<div class="form-group">
         		<label>Total required</label>
-        		<input type="text" name="amount_to_be_paid" class="form-control">
+        		<input id="total_required" type="text" name="amount_to_be_paid" class="form-control">
         	</div>
         	<div class="form-group">
         		<label>Total paid</label>
-        		<input type="text" name="amount_paid" class="form-control">
+        		<input id="total_paid" onblur="test()" type="text" name="amount_paid" class="form-control">
         	</div>
         	<div class="form-group">
         		<label>Balance</label>
-        		<input id="balance" type="text" name="balance" class="form-control">
+        		<input id="balance" type="text" name="balance" class="form-control" readonly>
         	</div>
             <br>
             <button type="submit" class="btn btn-success">Submit</button>
@@ -54,6 +44,12 @@
         <script type="text/javascript">
             function autofill(){
                 var reg_no = document.getElementById("reg_no").value;
+            }
+
+            function test(){
+                var total_required = document.getElementById("total_required").value;
+                var total_paid = document.getElementById("total_paid").value;
+                document.getElementById("balance").value = total_required - total_paid;
             }
 
         </script>
