@@ -26,7 +26,7 @@
             </div>
         	<div class="form-group">
         		<label>Total required</label>
-        		<input id="total_required" type="text" name="amount_to_be_paid" class="form-control">
+        		<input id="total_required" type="text" onblur="test()" name="amount_to_be_paid" class="form-control">
         	</div>
         	<div class="form-group">
         		<label>Total paid</label>
