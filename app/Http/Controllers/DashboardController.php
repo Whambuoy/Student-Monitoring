@@ -109,6 +109,11 @@ class DashboardController extends Controller
         return view('dashboard.financials_show')->with('financials', $financials);
     }
 
+    public function financials_add(){
+        $students = personal_info::all();
+        return view('dashboard.financials_add')->with('students', $students);
+    }
+
     public function financials_edit(Request $request, $id){
         $financial = Financials::findOrFail($id);
         return view('dashboard.financials_edit')->with('financials', $financial);

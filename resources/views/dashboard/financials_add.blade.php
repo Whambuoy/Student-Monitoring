@@ -6,11 +6,19 @@
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label for="title">Registration Number</label>
-                    <input value="" type="text" name="reg_no" class="form-control" id="title" placeholder="CT202/0027/16">
+                    <select value="" type="text" name="reg_no" class="form-control" placeholder="CT202/0027/16">
+                        @if(count($students)>0)
+                            @foreach($students as $student)
+                                <option>{{$student->reg_no}}</option>
+                            @endforeach
+                        @else
+                            <p>No students to add</p>
+                        @endif
+                    </select>
                 </div>
                 <div class="col-md-9">
                     <label for="title">Full name</label>
-                    <input value="" type="text" name="student_name" class="form-control" id="title" placeholder="John Doe">
+                    <input value="{{$student->student_name}}" type="text" name="student_name" class="form-control" id="title" placeholder="John Doe" readonly>
                 </div>
             </div>
         	<div class="form-group">
