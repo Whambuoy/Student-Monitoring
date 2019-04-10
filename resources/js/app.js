@@ -31,3 +31,19 @@ Vue.component('example-component', require('./components/ExampleComponent.vue').
 const app = new Vue({
     el: '#app'
 });
+
+$('#reg_no').change(function(){
+	$.ajax({
+		url: '/financials/' + $(this).val(),
+		type: 'get',
+		data: {},
+		success: function(data){
+			if(data.success == true){
+				$('#student_name').value = data.info;
+			}else{
+				alert('Cannot find info');
+			}
+		},
+		error: function(jqXHR, textStatus, errorThrown) {}
+	});
+});

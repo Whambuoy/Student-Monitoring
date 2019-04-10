@@ -157,6 +157,11 @@ class DashboardController extends Controller
         return redirect('/financials')->with('success', 'Financials successfully updated');
     }
 
+    public function getFinancialInfo($id){
+        $student = personal_info::findOrFail($id)->pluck('student_name');
+        return Response::json(['success'=>true, 'info'=>$student]);
+    }
+
     public function discipline_update(){
         //
     }

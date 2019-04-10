@@ -6,13 +6,13 @@
             <div class="form-row">
                 <div class="form-group col-md-3">
                     <label for="title">Registration Number</label>
-                    <select id="reg_no" value="" type="text" name="reg_no" class="form-control" placeholder="CT202/0027/16" onblur="autofill()">
+                    <select id="reg_no" value="" type="text" name="reg_no" class="form-control" placeholder="CT202/0027/16" onchange="autofill(this.value)">
 
                         <!--Loops through the students in the database to provide a drop-down list of registration numbers of the available students-->
 
                         @if(count($students)>0)
                             @foreach($students as $student)
-                                <option>{{$student->reg_no}}</option>
+                                <option value="{{$student->reg_no}}">{{$student->reg_no}}</option>
                             @endforeach
                         @else
                             <option>No students to add</option>
@@ -42,8 +42,18 @@
         </form>
 
         <script type="text/javascript">
-            function autofill(){
-                var reg_no = document.getElementById("reg_no").value;
+            function autofill(reg_no){
+                var xhttp = new XMLHttpRequest();
+                xhttp.onreadystatechange = function(){
+                    if (this.readyState == 4 && this.status == 200){
+                        document.getElementById("student_name").value = "Yeah";
+                    }
+                    else{
+                        alert(this.readyState);
+                    }
+                };
+                xhttp.open("GET", "/financials/add/"+reg_no, true);
+                xhttp.send();
             }
 
             function test(){
