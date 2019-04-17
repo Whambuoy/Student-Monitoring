@@ -2,27 +2,37 @@
 @section('content')
    <form method="post" action="/financials/store">
         {{ csrf_field() }}
-        <h2>Student Financial Information</h2>
+        <h2 style="text-align: center">Student Financial Information</h2>
+        <hr>
             <div class="form-row">
-                <div class="form-group col-md-3">
-                    <label for="title">Registration Number</label>
-                    <select id="reg_no" value="" type="text" name="reg_no" class="form-control" placeholder="CT202/0027/16" onblur="autofill(this.value)">
+                <div class="col-md-4">
+                      <div class="w3-card" style="width:70%; margin: 0 auto">
+                        <img src="{{ asset('img/user.svg')}}" alt="Person" style="width:70%">
+                      </div>
+                      <br>
+                </div>
+                <div class="col-md-8">
+                    <div class="form-group">
+                        <label for="title">Registration Number</label>
+                        <select id="reg_no" value="" type="text" name="reg_no" class="form-control" placeholder="CT202/0027/16" onblur="autofill(this.value)">
 
-                        <!--Loops through the students in the database to provide a drop-down list of registration numbers of the available students-->
-                        <option></option>
-                        @if(count($students)>0)
-                            @foreach($students as $student)
-                                <option value="{{$student->id}}">{{$student->reg_no}}</option>
-                            @endforeach
-                        @else
-                            <option>No students to add</option>
-                        @endif
-                    </select>
+                            <!--Loops through the students in the database to provide a drop-down list of registration numbers of the available students-->
+                            <option></option>
+                            @if(count($students)>0)
+                                @foreach($students as $student)
+                                    <option value="{{$student->id}}">{{$student->reg_no}}</option>
+                                @endforeach
+                            @else
+                                <option>No students to add</option>
+                            @endif
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="title">Full name</label>
+                        <input id="student_name" type="text" name="student_name" class="form-control" placeholder="John Doe" readonly>
+                    </div>
                 </div>
-                <div class="col-md-9">
-                    <label for="title">Full name</label>
-                    <input id="student_name" type="text" name="student_name" class="form-control" placeholder="John Doe" readonly>
-                </div>
+
             </div>
         	<div class="form-group">
         		<label>Total required</label>
