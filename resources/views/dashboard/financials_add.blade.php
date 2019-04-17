@@ -12,7 +12,7 @@
                         <option></option>
                         @if(count($students)>0)
                             @foreach($students as $student)
-                                <option value="{{$student->student_name}}">{{$student->student_name}}</option>
+                                <option value="{{$student->id}}">{{$student->reg_no}}</option>
                             @endforeach
                         @else
                             <option>No students to add</option>
@@ -61,7 +61,7 @@
                         document.getElementById('student_name').value = this.responseText;
                     }
                 };
-                xmlhttp.open("GET", "getStudent/?q=" + str, true);
+                xmlhttp.open("GET", "getStudent/" + str, true);
                 xmlhttp.send();
             }
         }
