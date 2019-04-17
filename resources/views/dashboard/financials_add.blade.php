@@ -26,11 +26,11 @@
             </div>
         	<div class="form-group">
         		<label>Total required</label>
-        		<input id="total_required" type="text" onblur="calc()" name="amount_to_be_paid" class="form-control">
+        		<input id="total_required" type="text" name="amount_to_be_paid" class="form-control">
         	</div>
         	<div class="form-group">
         		<label>Total paid</label>
-        		<input id="total_paid" onblur="test()" type="text" name="amount_paid" class="form-control">
+        		<input id="total_paid" onblur="calc()" type="text" name="amount_paid" class="form-control">
         	</div>
         	<div class="form-group">
         		<label>Balance</label>
