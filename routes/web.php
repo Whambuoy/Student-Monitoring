@@ -33,7 +33,7 @@ Route::post('/financials/store', 'DashboardController@financials_store');
 Route::get('/financials/{id}/edit', 'DashboardController@financials_edit');
 Route::post('/financials/{id}/update', 'DashboardController@financials_update');
 
-Route::get('/financials/add/{id}', 'DashboardController@getFinancialInfo');
+Route::get('/financials/getStudent', 'DashboardController@getFinancialInfo');
 
 #Student Discipline URLs
 Route::get('/discipline', 'DashboardController@discipline_show');
