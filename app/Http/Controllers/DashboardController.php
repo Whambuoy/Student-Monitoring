@@ -111,7 +111,8 @@ class DashboardController extends Controller
 
     public function financials_add(){
         $students = personal_info::all();
-        return view('dashboard.financials_add')->with('students', $students);
+        $financials = Financials::all();
+        return view('dashboard.financials_add')->with('students', $students)->with('financials', $financials);
     }
 
     public function financials_store(Request $request){
@@ -123,8 +124,14 @@ class DashboardController extends Controller
             'balance' => 'required'
         ]);
 
+        #stores student->id submitted through registration filled and uses it to get student from student(personal_info) table
+        $studentID = $request->input('reg_no');
+
+        #student with corresponding id is retrieved so that their registration number can be retrieved for storage
+        $student = personal_info::findOrFail($studentID);
+
         $financial = new Financials;
-        $financial->reg_no = $request->input('reg_no');
+        $financial->reg_no = $student->reg_no;
         $financial->student_name = $request->input('student_name');
         $financial->amount_to_be_paid = $request->input('amount_to_be_paid');
         $financial->amount_paid = $request->input('amount_paid');

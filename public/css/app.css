@@ -10670,3 +10670,8 @@ a.text-dark:focus {
   border-radius: 25px;
 }
 
+.prof_img {
+  display: block;
+  margin: 0 auto;
+}
+
