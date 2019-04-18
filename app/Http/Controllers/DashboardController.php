@@ -55,6 +55,7 @@ class DashboardController extends Controller
         ]);
  
         $personal_info = new personal_info;
+        $financial = new Financials;
 
         $personal_info->reg_no = $request->input('reg_no');
         $personal_info->student_name = $request->input('student_name');
@@ -65,7 +66,17 @@ class DashboardController extends Controller
         $personal_info->parent_name = $request->input('parent_name');
         $personal_info->parent_phone = $request->input('parent_phone');
 
+        $financial->reg_no = $personal_info->reg_no;
+        $financial->student_name = $personal_info->student_name;
+        $financial->amount_to_be_paid = 0;
+        $financial->amount_paid = 0;
+        $financial->balance = 0;
+        $financial->save();
+
         $personal_info->save();
+
+
+
         return redirect('dashboard')->with('success', 'Student added successfully');
     }
 
