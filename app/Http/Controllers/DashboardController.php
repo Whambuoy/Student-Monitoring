@@ -56,6 +56,7 @@ class DashboardController extends Controller
  
         $personal_info = new personal_info;
         $financial = new Financials;
+        $discipline = new Discipline;
 
         $personal_info->reg_no = $request->input('reg_no');
         $personal_info->student_name = $request->input('student_name');
@@ -66,12 +67,19 @@ class DashboardController extends Controller
         $personal_info->parent_name = $request->input('parent_name');
         $personal_info->parent_phone = $request->input('parent_phone');
 
+        #creates financial record of newly added student
         $financial->reg_no = $personal_info->reg_no;
         $financial->student_name = $personal_info->student_name;
         $financial->amount_to_be_paid = 0;
         $financial->amount_paid = 0;
         $financial->balance = 0;
         $financial->save();
+
+        #creates discipline record of newly added student
+        $discipline->reg_no = $personal_info->reg_no;
+        $discipline->student_name = $personal_info->student_name;
+        $discipline->status = "In session";
+        $discipline->save();
 
         $personal_info->save();
 
