@@ -14,7 +14,7 @@
 					<th>{{$discipline->reg_no}}</th>
 					<th>{{$discipline->student_name}}</th>
 					<th>{{$discipline->status}}</th>
-					<th><a class="btn btn-primary" href="#">Update</a></th>
+					<th><a class="btn btn-primary" href="/discipline/{{$discipline->id}}/edit">Update</a></th>
 				</tr>
 			@endforeach
 		@else

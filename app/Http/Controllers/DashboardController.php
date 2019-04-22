@@ -188,12 +188,28 @@ class DashboardController extends Controller
         return $student->student_name;
     }
 
-    public function discipline_update(){
-        //
-    }
+
+
+
     public function discipline_show(){
         $discipline = Discipline::all();
         return view('dashboard.discipline_show')->with('discipline', $discipline);
+    }
+
+    public function discipline_edit(Request $request, $id){
+        //Find discipline record
+        $discipline = Discipline::findOrFail($id);
+        return view('dashboard.discipline_edit')->with('discipline', $discipline);
+    }
+
+    public function discipline_update(Request $request, $id){
+        //find discipine record
+        $discipline = Discipline::findOrFail($id);
+        $this->validate($request, [
+            'status' => 'required'
+        ]);
+
+
     }
 
     public function test(){

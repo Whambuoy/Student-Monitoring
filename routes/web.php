@@ -37,5 +37,7 @@ Route::get('/financials/getStudent/{id}', 'DashboardController@getFinancialInfo'
 
 #Student Discipline URLs
 Route::get('/discipline', 'DashboardController@discipline_show');
+Route::get('/discipline/{id}/edit', 'DashboardController@discipline_edit');
+Route::post('/discipline/{id}/update', 'DashboardController@discipline_update');
 
 Route::get('/test', 'DashboardController@test');
