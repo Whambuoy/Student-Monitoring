@@ -172,7 +172,7 @@ class DashboardController extends Controller
             'amount_paid' => 'required'
         ]);
 
-        $financial = new Financials;
+        $financial = Financials::findOrFail($id);
         $financial->reg_no = $request->input('reg_no');
         $financial->student_name = $request->input('student_name');
         $financial->amount_to_be_paid = $request->input('amount_to_be_paid');
