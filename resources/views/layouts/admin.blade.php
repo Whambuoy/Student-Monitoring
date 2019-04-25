@@ -159,5 +159,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <script type="text/javascript" src="{{asset ('js/app.js')}}"></script>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+<script src="https://unpkg.com/ionicons@4.2.2/dist/ionicons.js"></script>
 </body>
 </html>

@@ -26,7 +26,28 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('dashboard.dashboard');
+        $students = personal_info::all(); 
+        $disciplines = Discipline::all();
+
+        $in_session = $disciplines->filter(function($discipline){
+            return $discipline->status == "In session";
+        });
+
+        $suspended = $disciplines->filter(function($discipline){
+            return $discipline->status == "Suspended";
+        });
+        
+        $expelled = $disciplines->filter(function($discipline){
+            return $discipline->status == "Expelled";
+        });
+
+        $statistics = array(
+            'in_session' => count($in_session),
+            'suspended' => count($suspended),
+            'expelled' => count($expelled)
+             );
+
+        return view('dashboard.dashboard')->with('students', $students)->with('statistics', $statistics);
     }
 
     public function students_show()
@@ -204,10 +225,18 @@ class DashboardController extends Controller
 
     public function discipline_update(Request $request, $id){
         //find discipine record
-        $discipline = Discipline::findOrFail($id);
         $this->validate($request, [
             'status' => 'required'
         ]);
+
+        $discipline = Discipline::findOrFail($id);
+        $discipline->reg_no = $request->input('reg_no');
+        $discipline->student_name = $request->input('student_name');
+        $discipline->status = $request->input('status');
+
+        $discipline->save();
+
+        return redirect('/discipline')->with('success', 'Discipline successfully updated');
 
 
     }

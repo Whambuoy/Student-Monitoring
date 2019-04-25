@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-   <form method="post" action="/disciplines/{{$discipline->id}}/update">
+   <form method="post" action="/discipline/{{$discipline->id}}/update">
         {{ csrf_field() }}
         <h2 style="text-align: center">Student discipline Information</h2>
         <hr>
@@ -27,33 +27,14 @@
             <hr>
             <h2 style="text-align: center">Status</h2>
             <hr>
-            <div class="row">
-                <div class="form-group col-md-4">
-                    <div class="form-check">
-                      <input name="status" class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="{{$discipline->status}}" checked>
-                      <label class="form-check-label" for="exampleRadios1">
-                        In session
-                      </label>
-                    </div>
-                </div>
-
-                <div class="form-group col-md-4">
-                    <div class="form-check">
-                      <input name="status" class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                      <label class="form-check-label" for="exampleRadios2">
-                        Suspended
-                      </label>
-                    </div>                    
-                </div>
-
-                <div class="form-group col-md-4">
-                    <div class="form-check">
-                      <input name="status" class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
-                      <label class="form-check-label" for="exampleRadios2">
-                        Expelled
-                      </label>
-                    </div>    
-                </div>                
+            <div class="form-group">
+                <label for="course">Course of Study</label>
+                    <select name="status" class="form-control" id="category">
+                        <option>{{$discipline->status}}</option>
+                        <option>In session</option>
+                        <option>Suspended</option>
+                        <option>Expelled</option>
+                    </select>
             </div>
             <br>
             <button type="submit" class="btn btn-success">Submit</button>
