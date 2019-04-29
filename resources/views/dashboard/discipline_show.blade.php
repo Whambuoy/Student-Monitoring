@@ -11,10 +11,10 @@
 		@if(count($discipline)>0)
 			@foreach($discipline as $discipline)
 				<tr>
-					<th>{{$discipline->reg_no}}</th>
-					<th>{{$discipline->student_name}}</th>
-					<th>{{$discipline->status}}</th>
-					<th><a class="btn btn-primary" href="/discipline/{{$discipline->id}}/edit">Update</a></th>
+					<td>{{$discipline->reg_no}}</td>
+					<td>{{$discipline->student_name}}</td>
+					<td>{{$discipline->status}}</td>
+					<td><a class="btn btn-primary" href="/discipline/{{$discipline->id}}/edit">Update</a></td>
 				</tr>
 			@endforeach
 		@else
