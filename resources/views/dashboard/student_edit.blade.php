@@ -19,7 +19,7 @@
                         </div>
                         <div class="col-md-8">
                             <label for="student_name">Full name</label>
-                            <input value="{{$student->student_name}}" pattern="[A-Za-z]+" title="Enter a valid name eg: John Doe" type="text" name="student_name" class="form-control" id="title" placeholder="John Doe">
+                            <input value="{{$student->student_name}}" pattern="[a-zA-Z]+[ ][a-zA-Z]+\s?[a-zA-Z]+" title="Enter a valid name eg: John Doe" type="text" name="student_name" class="form-control" id="title" placeholder="John Doe">
                         </div>
                     </div>
                     <div class="row">
@@ -65,11 +65,11 @@
             <div class="form-row">
                 <div class="col-md-6">
                     <label for="link">Full name</label>
-                    <input value="{{$student->parent_name}}" name="parent_name" pattern="[A-Za-z]{3}" title="Enter a valid name eg: John Doe" type="text" class="form-control" id="link" placeholder="Jack Sparrow Doe">
+                    <input value="{{$student->parent_name}}" name="parent_name" pattern="[a-zA-Z]+[ ][a-zA-Z]+\s?[a-zA-Z]+" title="Enter a valid name eg: John Doe" type="text" class="form-control" id="link" placeholder="Jack Sparrow Doe">
                 </div>
                 <div class="col-md-6">
                     <label for="link">Phone number</label>
-                    <input value="{{$student->parent_phone}}" pattern="[A-Za-z]+" title="Enter a valid name eg: John Doe" name="parent_phone" pattern="(?=.*\d).{10,}" title="Please enter valid phone number" type="text" class="form-control" id="link" placeholder="+254 712 345 678">
+                    <input value="{{$student->parent_phone}}" pattern="[a-zA-Z]+[ ][a-zA-Z]+" title="Enter a valid name eg: John Doe" name="parent_phone" pattern="(?=.*\d).{10,}" title="Please enter valid phone number" type="text" class="form-control" id="link" placeholder="+254 712 345 678">
                 </div>
             </div>
             <br>
