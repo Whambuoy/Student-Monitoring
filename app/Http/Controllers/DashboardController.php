@@ -144,6 +144,16 @@ class DashboardController extends Controller
         return redirect('student')->with('success', 'Student personal information updated successfully');
     }
 
+    public function student_search(Request $request){
+        $personal_info = personal_info::all();
+
+        foreach ($personal_info as $student) {
+            if ($request->input('search-item') == $student->reg_no){
+                return view('dashboard.student_search')->with('student', $student);
+            }
+        }
+    }
+
     public function financials_show(){
         $financials = Financials::all();
         return view('dashboard.financials_show')->with('financials', $financials);

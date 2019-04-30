@@ -34,23 +34,17 @@
 	        <th>Parent phone</th>
 	        <th></th>
 	    </tr>
-		@if(count($students)>0)
-			@foreach($students as $student)
-				<tr>
-					<td>{{$student->reg_no}}</td>
-					<td>{{$student->student_name}}</td>
-					<td>{{$student->gender}}</td>
-					<td>{{$student->date_of_birth}}</td>
-					<td>{{$student->date_of_admission}}</td>
-					<td>{{$student->course}}</td>
-					<td>{{$student->parent_name}}</td>
-					<td>{{$student->parent_phone}}</td>
-					<td><a class="btn btn-primary" href="/student/{{$student->id}}/edit">Edit</a></td>
-				</tr>
-			@endforeach
-		@else
-            <p>You have no posts</p>
-		@endif
+		<tr>
+			<td>{{$student->reg_no}}</td>
+			<td>{{$student->student_name}}</td>
+			<td>{{$student->gender}}</td>
+			<td>{{$student->date_of_birth}}</td>
+			<td>{{$student->date_of_admission}}</td>
+			<td>{{$student->course}}</td>
+			<td>{{$student->parent_name}}</td>
+			<td>{{$student->parent_phone}}</td>
+			<td><a class="btn btn-primary" href="/student/{{$student->id}}/edit">Edit</a></td>
+		</tr>
 	</table>
 </div>
 
