@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('content')
-    <form method="post" action="/student/{{$student->id}}/update">
+    <form onload="restrictFutureDate()" method="post" action="/student/{{$student->id}}/update">
         {{ csrf_field() }}
         <h2 style="text-align: center">Student Information</h2>
         <hr>
@@ -19,7 +19,7 @@
                         </div>
                         <div class="col-md-8">
                             <label for="student_name">Full name</label>
-                            <input value="{{$student->student_name}}" type="text" name="student_name" class="form-control" id="title" placeholder="John Doe">
+                            <input value="{{$student->student_name}}" pattern="[A-Za-z]+" title="Enter a valid name eg: John Doe" type="text" name="student_name" class="form-control" id="title" placeholder="John Doe">
                         </div>
                     </div>
                     <div class="row">
@@ -49,7 +49,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="date_of_admission">Date of Admission</label>
-                            <input value="{{$student->date_of_admission}}" name="date_of_admission" type="date" class="form-control" id="link">
+                            <input value="{{$student->date_of_admission}}" id="admission" name="date_of_admission" type="date" class="form-control" id="link">
                         </div>
                     </div>
                 </div>
@@ -65,15 +65,34 @@
             <div class="form-row">
                 <div class="col-md-6">
                     <label for="link">Full name</label>
-                    <input value="{{$student->parent_name}}" name="parent_name" type="text" class="form-control" id="link" placeholder="Jack Sparrow Doe">
+                    <input value="{{$student->parent_name}}" name="parent_name" pattern="[A-Za-z]{3}" title="Enter a valid name eg: John Doe" type="text" class="form-control" id="link" placeholder="Jack Sparrow Doe">
                 </div>
                 <div class="col-md-6">
                     <label for="link">Phone number</label>
-                    <input value="{{$student->parent_phone}}" name="parent_phone" pattern="(?=.*\d).{10,}" title="Please enter valid phone number" type="text" class="form-control" id="link" placeholder="+254 712 345 678">
+                    <input value="{{$student->parent_phone}}" pattern="[A-Za-z]+" title="Enter a valid name eg: John Doe" name="parent_phone" pattern="(?=.*\d).{10,}" title="Please enter valid phone number" type="text" class="form-control" id="link" placeholder="+254 712 345 678">
                 </div>
             </div>
             <br>
             <button type="submit" class="btn btn-success">Submit</button>
             <a href="/student" class="btn btn-secondary float-right">Back</a>
+            <input type="text" id='test' name="">
     </form>
+    <script type="text/javascript">
+        window.onload(){function restrictFutureDate(){
+            var element = document.getElementById('admission')
+            Use new Date() to generate a new Date object containing the current date and time.
+
+            var today = new Date();
+            var dd = String(today.getDate()).padStart(2, '0');
+            var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+            var yyyy = today.getFullYear();
+
+            today = yyyy + '-' + mm + '-' + dd;
+
+            element.setAttribute('max',today);
+            document.getElementById('test').value = "today";
+        }
+        }
+        
+    </script>
 @endsection

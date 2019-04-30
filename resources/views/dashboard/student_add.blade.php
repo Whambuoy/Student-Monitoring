@@ -19,7 +19,7 @@
                         </div>
                         <div class="col-md-8">
                             <label for="student_name">Full name</label>
-                            <input type="text" name="student_name" class="form-control" id="title" placeholder="John Doe">
+                            <input type="text" pattern="[A-Za-z]+" title="Enter a valid name eg: John Doe" name="student_name" class="form-control" id="title" placeholder="John Doe">
                         </div>
                     </div>
                     <div class="row">
@@ -64,7 +64,7 @@
             <div class="form-row">
                 <div class="col-md-6">
                     <label for="link">Full name</label>
-                    <input name="parent_name" type="text" class="form-control" id="link" placeholder="Jack Sparrow Doe">
+                    <input name="parent_name" type="text" pattern="[A-Za-z]+" title="Enter a valid name eg: John Doe" class="form-control" id="link" placeholder="Jack Sparrow Doe">
                 </div>
                 <div class="col-md-6">
                     <label for="link">Phone number</label>

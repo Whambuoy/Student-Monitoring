@@ -26,11 +26,11 @@
             <div class="row">
                 <div class="form-group col-md-6">
                     <label>Total required</label>
-                    <input id="total_required" type="text" name="amount_to_be_paid" class="form-control" value="{{$financial->amount_to_be_paid}}">
+                    <input id="total_required" type="text" name="amount_to_be_paid" class="form-control" value="{{$financial->amount_to_be_paid}}" pattern="[0-9]+" title="Please enter a valid amount">
                 </div>
                 <div class="form-group col-md-6">
                     <label>Total paid</label>
-                    <input id="total_paid" onblur="calc()" type="text" name="amount_paid" class="form-control" value="{{$financial->amount_paid}}">
+                    <input id="total_paid" onblur="calc()" type="text" name="amount_paid" class="form-control" value="{{$financial->amount_paid}}" pattern="[0-9]+" title="Please enter a valid amount">
                 </div>                
             </div>
 
