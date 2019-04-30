@@ -45,7 +45,7 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="date_of_birth">Date of Birth</label>
-                            <input value="{{$student->date_of_birth}}" name="date_of_birth" type="date" class="form-control" id="link"> 
+                            <input value="{{$student->date_of_birth}}" max="2001-12-31" name="date_of_birth" type="date" class="form-control" id="link"> 
                         </div>
                         <div class="form-group col-md-6">
                             <label for="date_of_admission">Date of Admission</label>
@@ -69,7 +69,7 @@
                 </div>
                 <div class="col-md-6">
                     <label for="link">Phone number</label>
-                    <input value="{{$student->parent_phone}}" name="parent_phone" type="text" class="form-control" id="link" placeholder="+254 712 345 678">
+                    <input value="{{$student->parent_phone}}" name="parent_phone" pattern="(?=.*\d).{10,}" title="Please enter valid phone number" type="text" class="form-control" id="link" placeholder="+254 712 345 678">
                 </div>
             </div>
             <br>

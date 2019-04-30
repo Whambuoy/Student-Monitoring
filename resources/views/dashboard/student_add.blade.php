@@ -15,7 +15,7 @@
                     <div class="row form-group">
                         <div class="col-md-4">
                             <label for="reg_no">Registration Number</label>
-                            <input type="text" name="reg_no" class="form-control" id="title" placeholder="CT202/0027/16">
+                            <input type="text" name="reg_no" title="CT202/0027/16" class="form-control" id="title" placeholder="CT202/0027/16">
                         </div>
                         <div class="col-md-8">
                             <label for="student_name">Full name</label>
@@ -44,7 +44,7 @@
                     <div class="row">
                         <div class="form-group col-md-6">
                             <label for="date_of_birth">Date of Birth</label>
-                            <input name="date_of_birth" type="date" class="form-control" id="link"> 
+                            <input name="date_of_birth" type="date" max="2001-12-31" class="form-control" id="link"> 
                         </div>
                         <div class="form-group col-md-6">
                             <label for="date_of_admission">Date of Admission</label>
@@ -68,7 +68,7 @@
                 </div>
                 <div class="col-md-6">
                     <label for="link">Phone number</label>
-                    <input name="parent_phone" type="text" class="form-control" id="link" placeholder="+254 712 345 678">
+                    <input name="parent_phone" pattern="(?=.*\d).{10,}" title="Please enter valid phone number" type="text" class="form-control" id="link" placeholder="+254 712 345 678">
                 </div>
             </div>
             <br>
