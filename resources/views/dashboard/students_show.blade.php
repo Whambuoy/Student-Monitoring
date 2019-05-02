@@ -48,8 +48,6 @@
 					<td><a class="btn btn-primary" href="/student/{{$student->id}}/edit">Edit</a></td>
 				</tr>
 			@endforeach
-		@else
-            <p>You have no posts</p>
 		@endif
 	</table>
 </div>

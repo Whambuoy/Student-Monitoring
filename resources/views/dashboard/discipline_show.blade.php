@@ -17,8 +17,6 @@
 					<td><a class="btn btn-primary" href="/discipline/{{$discipline->id}}/edit">Update</a></td>
 				</tr>
 			@endforeach
-		@else
-            <p>Nothing to display</p>
 		@endif
 	</table>
 @endsection

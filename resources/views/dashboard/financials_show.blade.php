@@ -28,8 +28,6 @@
 					<td><a class="btn btn-primary" href="/financials/{{$financial->id}}/edit">Update</a></td>
 				</tr>
 			@endforeach
-		@else
-            <p>No financials to display</p>
 		@endif
 	</table>
 @endsection
