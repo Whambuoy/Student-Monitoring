@@ -251,6 +251,10 @@ class DashboardController extends Controller
 
     }
 
+    public function updates_show(){
+        return view('dashboard.updates_show');
+    }
+
     public function test(){
         $financial = Financials::findorfail(2);
         dd($financial)->student;

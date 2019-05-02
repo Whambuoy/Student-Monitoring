@@ -42,4 +42,8 @@ Route::get('/discipline', 'DashboardController@discipline_show');
 Route::get('/discipline/{id}/edit', 'DashboardController@discipline_edit');
 Route::post('/discipline/{id}/update', 'DashboardController@discipline_update');
 
+
+#Updates URLs
+Route::get('/updates', 'DashboardController@updates_show');
+
 Route::get('/test', 'DashboardController@test');
