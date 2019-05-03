@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\personal_info;
 use App\Financials;
 use App\Discipline;
-
+use App\Update;
 class DashboardController extends Controller
 {
     /**
@@ -252,12 +252,58 @@ class DashboardController extends Controller
     }
 
     public function updates_show(){
-        return view('dashboard.updates_show');
+        $updates = Update::all();
+
+        $sent = $updates->filter(function($updates){
+            return $updates->sent == "Yes";
+        });
+
+        return view('dashboard.updates_show')->with('updates', $updates)->with('sent', $sent);
     }
 
     public function updates_add(){
         return view('dashboard.update_add');
     }
+
+    public function updates_store(Request $request){
+        $this->validate($request, [
+            'title' => 'required',
+            'category' => 'required',
+            'message' => 'required'
+        ]);
+
+        $update = new Update;
+        $update->title = $request->input('title');
+        $update->message = $request->input('message');
+        $update->category = $request->input('category');
+        $update->sent = "No";
+        $update->save();
+
+        return redirect('/updates')->with('success', 'Update successfully added');
+    }
+
+    public function updates_edit(Request $request, $id){
+        //Find discipline record
+        $update = Update::findOrFail($id);
+        return view('dashboard.update_edit')->with('update', $update);
+    }
+
+    public function updates_update(Request $request, $id){
+        $this->validate($request, [
+            'title' => 'required',
+            'category' => 'required',
+            'message' => 'required'
+        ]);
+
+        $update = Update::findOrFail($id);
+        $update->title = $request->input('title');
+        $update->message = $request->input('message');
+        $update->category = $request->input('category');
+        $update->save();
+
+        return redirect('/updates')->with('success', 'Update successfully updated');
+    }
+
 
     public function test(){
         $financial = Financials::findorfail(2);
