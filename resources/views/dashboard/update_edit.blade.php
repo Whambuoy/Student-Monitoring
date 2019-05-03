@@ -23,6 +23,7 @@
         <textarea name="message" class="form-control" id="message" rows="5">{{$update->message}}</textarea>
     </div>
     <button type="submit" class="btn btn-success">Update</button>
+    <a href="/updates/{{$update->id}}/delete" class="btn btn-danger">Delete</a>
     <a href="/updates" class="btn btn-secondary float-right">Back</a>
 </form>
 @endsection

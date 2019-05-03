@@ -35,8 +35,8 @@
 					<td>{{$update->title}}</td>
 					<td>{{$update->message}}</td>
 					<td><a class="btn btn-primary" href="/updates/{{$update->id}}/edit">Update</a></td>
-					<td><a class="btn btn-danger" href="/updates/{{$update->id}}/edit">Delete</a></td>
-					<td><a class="btn btn-success" href="/updates/{{$update->id}}/edit">Send message</a></td>
+					<td><a class="btn btn-danger" href="/updates/{{$update->id}}/delete">Delete</a></td>
+					<td><a class="btn btn-success" href="#">Send message</a></td>
 				</tr>
 			@endforeach
 		@endif

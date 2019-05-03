@@ -49,5 +49,6 @@ Route::get('/updates/add', 'DashboardController@updates_add');
 Route::post('/updates/store', 'DashboardController@updates_store');
 Route::get('/updates/{id}/edit', 'DashboardController@updates_edit');
 Route::post('/updates/{id}/update', 'DashboardController@updates_update');
+Route::get('/updates/{id}/delete', 'DashboardController@updates_delete');
 
 Route::get('/test', 'DashboardController@test');

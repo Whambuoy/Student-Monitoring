@@ -304,6 +304,12 @@ class DashboardController extends Controller
         return redirect('/updates')->with('success', 'Update successfully updated');
     }
 
+    public function updates_delete(Request $request, $id){
+        //Find discipline record
+        $update = Update::findOrFail($id);
+        $update->delete();
+        return redirect('/updates')->with('success', 'Update successfully deleted');
+    }
 
     public function test(){
         $financial = Financials::findorfail(2);
