@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\personal_info;
 
 class USSDController extends Controller
 {
-    public class index(){
+    public function index(){
 
 		// Reads the variables sent via POST from our gateway
 		$sessionId   = $_POST["sessionId"];
@@ -14,36 +15,50 @@ class USSDController extends Controller
 		$phoneNumber = $_POST["phoneNumber"];
 		$text        = $_POST["text"];
 
+		$user_responses = explode('*', $text);
+		$personal_info = personal_info::all();
+
 		if ($text == "") {
 		    // This is the first request. Note how we start the response with CON
-		    $response  = "CON What would you want to check \n";
-		    $response .= "1. My Account \n";
-		    $response .= "2. My phone number";
+		    $response  = "CON Welcome to SMPS Parent Portal \n";
+		    $response .= "Please enter your child's registration number\n";
 
-		} else if ($text == "1") {
-		    // Business logic for first level response
-		    $response = "CON Choose account information you want to view \n";
-		    $response .= "1. Account number \n";
-		    $response .= "2. Account balance";
+		} else if (((count($user_responses)) == 1) && ($user_responses[0] !== "")){
+		    foreach ($personal_info as $student) {
+	            if ($user_responses[0] == $student->reg_no){
+	                $response = "CON Enter service number: \n";
+		    		$response .= "(Use the parent phone number submitted during student registration) \n";
+		    		break;
+	            }
 
-		} else if ($text == "2") {
-		    // Business logic for first level response
-		    // This is a terminal request. Note how we start the response with END
-		    $response = "END Your phone number is ".$phoneNumber;
+	        $response = "END Registration number not found.";
+        }
+		    
 
-		} else if($text == "1*1") { 
-		    // This is a second level response where the user selected 1 in the first instance
-		    $accountNumber  = "ACC1001";
+		} else if (((count($user_responses)) == 2) && ($user_responses[1] !== "")){
+			foreach ($personal_info as $student) {
+	            if ($user_responses[1] == $student->parent_phone){
+	                $response = "END Registration number not found.";
+				    $response = "CON Please select an option: \n";
+				    $response .= "1. Discipline status \n";
+				    $response .= "2. Exam results \n";
+				    $response .= "3. Financial information \n";
+		    		break;
+	            }
 
-		    // This is a terminal request. Note how we start the response with END
-		    $response = "END Your account number is ".$accountNumber;
+	        $response = "END Invalid service number";
+			}
+	        
 
-		} else if ( $text == "1*2" ) {
-		    // This is a second level response where the user selected 1 in the first instance
-		    $balance  = "KES 10,000";
 
-		    // This is a terminal request. Note how we start the response with END
-		    $response = "END Your balance is ".$balance;
+		} else if($user_responses[2] == "1") { 
+		    $response = "END Your son has been suspended \n";
+
+		} else if($user_responses[2] == "2") {
+		    $response = "END Exam results will be displayed here";
+
+		} else if($user_responses[2] == "3") {
+		    $response = "END Financial information of student";
 		}
 
 		// Echo the response back to the API
