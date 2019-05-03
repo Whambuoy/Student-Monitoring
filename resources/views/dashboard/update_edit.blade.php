@@ -23,7 +23,20 @@
         <textarea name="message" class="form-control" id="message" rows="5">{{$update->message}}</textarea>
     </div>
     <button type="submit" class="btn btn-success">Update</button>
-    <a href="/updates/{{$update->id}}/delete" class="btn btn-danger">Delete</a>
+    <a href="/updates/{{$update->id}}/delete" class="btn btn-danger" id="delete" onclick="confirm_delete()">Delete</a>
     <a href="/updates" class="btn btn-secondary float-right">Back</a>
 </form>
+
+<script type="text/javascript">
+    function confirm_delete(){
+        var answer = confirm("Delete update?");
+        if (answer) {
+           //proceed
+        }
+        else {
+            document.getElementById('delete').setAttribute('href', '/updates');
+        }
+    
+}
+</script>
 @endsection

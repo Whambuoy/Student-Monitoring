@@ -35,7 +35,7 @@
 					<td>{{$update->title}}</td>
 					<td>{{$update->message}}</td>
 					<td><a class="btn btn-primary" href="/updates/{{$update->id}}/edit">Update</a></td>
-					<td><a class="btn btn-danger" href="/updates/{{$update->id}}/delete">Delete</a></td>
+					<td><a id="delete" class="btn btn-danger" href="/updates/{{$update->id}}/delete" onclick="confirm_delete()">Delete</a></td>
 					<td><a class="btn btn-success" href="#">Send message</a></td>
 				</tr>
 			@endforeach
@@ -81,5 +81,18 @@
 	</div>
 
 </div>
+
+<script type="text/javascript">
+	function confirm_delete(){
+		var answer = confirm("Delete update?");
+		if (answer) {
+		   //proceed
+		}
+		else {
+			document.getElementById('delete').setAttribute('href', '#');
+		}
+	
+}
+</script>
 
 @endsection

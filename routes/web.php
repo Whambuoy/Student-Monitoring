@@ -51,4 +51,6 @@ Route::get('/updates/{id}/edit', 'DashboardController@updates_edit');
 Route::post('/updates/{id}/update', 'DashboardController@updates_update');
 Route::get('/updates/{id}/delete', 'DashboardController@updates_delete');
 
+Route::post('/ussd','USSDController@index');
+
 Route::get('/test', 'DashboardController@test');
