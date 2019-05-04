@@ -15,7 +15,7 @@
                     <div class="row form-group">
                         <div class="col-md-4">
                             <label for="reg_no">Registration Number</label>
-                            <input type="text" name="reg_no" title="CT202/0027/16" class="form-control" id="title" placeholder="CT202/0027/16">
+                            <input type="text" name="reg_no" onblur="restrictDuplicate()" title="CT202/0027/16" class="form-control" id="reg_no" placeholder="CT202/0027/16">
                         </div>
                         <div class="col-md-8">
                             <label for="student_name">Full name</label>
@@ -72,7 +72,33 @@
                 </div>
             </div>
             <br>
-            <button type="submit" class="btn btn-success">Submit</button>
+            <button type="submit" onclick="restrictDuplicate()" id="submit" class="btn btn-success">Submit</button>
             <a href="/student" class="btn btn-secondary float-right">Back</a>
     </form>
+        <script type="text/javascript">
+            function restrictDuplicate(){
+                var str = document.getElementById('reg_no').value;
+                if (str.length == 0){
+                    alert("Please fill in registration number");
+                }else{
+                    res = str.split('/');
+                    res2 = res.join('-');
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function(){
+                        if(this.readyState == 4 && this.status == 200){
+                            if(this.responseText != ""){
+                                alert(this.responseText);
+                                document.getElementById("submit").addEventListener("click", function(event){event.preventDefault()
+                                });
+
+                            }
+                            
+                        }
+                    ;}
+                    xmlhttp.open("GET", '/student/restrictDuplicate?q=' +res2, true);
+                    xmlhttp.send();
+                }
+            }
+
+        </script>
 @endsection

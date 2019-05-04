@@ -27,6 +27,7 @@ Route::get('/student/{id}/edit', 'DashboardController@student_edit');
 Route::post('/student/{id}/update', 'DashboardController@student_update');
 
 Route::post('/student/search', 'DashboardController@student_search');
+Route::get('/student/restrictDuplicate', 'DashboardController@restrictDuplicate');
 
 #Students Financials URLs
 Route::get('/financials', 'DashboardController@financials_show');

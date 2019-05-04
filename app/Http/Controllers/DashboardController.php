@@ -109,6 +109,21 @@ class DashboardController extends Controller
         return redirect('dashboard')->with('success', 'Student added successfully');
     }
 
+    public function restrictDuplicate(Request $request){
+        $q = $request->input('q');
+
+        $reg_no = str_replace('-', '/', $q);
+        $students = personal_info::all();
+
+        foreach ($students as $student) {
+            if ($student->reg_no == $reg_no){
+                return "Registration number already exists";
+                break;
+
+            }
+        }
+    }
+
     public function student_edit($id)
     {
         $student = personal_info::findOrFail($id);
