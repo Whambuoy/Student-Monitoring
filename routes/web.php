@@ -29,6 +29,9 @@ Route::post('/student/{id}/update', 'DashboardController@student_update');
 Route::post('/student/search', 'DashboardController@student_search');
 Route::get('/student/restrictDuplicate', 'DashboardController@restrictDuplicate');
 
+#Exams URLs
+Route::get('/exams/add','DashboardController@exam_add');
+
 #Students Financials URLs
 Route::get('/financials', 'DashboardController@financials_show');
 Route::get('/financials/add', 'DashboardController@financials_add');

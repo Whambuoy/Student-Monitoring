@@ -169,6 +169,13 @@ class DashboardController extends Controller
         }
     }
 
+
+    //Exam functions
+
+    public function exam_add(){
+        return view('dashboard.exam_add');
+    }
+
     public function financials_show(){
         $financials = Financials::all();
         return view('dashboard.financials_show')->with('financials', $financials);
