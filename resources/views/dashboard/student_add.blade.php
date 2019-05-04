@@ -15,7 +15,7 @@
                     <div class="row form-group">
                         <div class="col-md-4">
                             <label for="reg_no">Registration Number</label>
-                            <input type="text" name="reg_no" onblur="restrictDuplicate()" title="CT202/0027/16" class="form-control" id="reg_no" placeholder="CT202/0027/16">
+                            <input type="text" name="reg_no" onblur="restrictDuplicate()" title="CT202/0027/16" class="form-control" id="reg_no" placeholder="CT202/0027/16" pattern="[A-Z]+[0-9]+/[0-9]+/[0-9]+">
                         </div>
                         <div class="col-md-8">
                             <label for="student_name">Full name</label>
@@ -80,6 +80,8 @@
                 var str = document.getElementById('reg_no').value;
                 if (str.length == 0){
                     alert("Please fill in registration number");
+                    document.getElementById("submit").addEventListener("click", function(event){event.preventDefault()
+                                });
                 }else{
                     res = str.split('/');
                     res2 = res.join('-');

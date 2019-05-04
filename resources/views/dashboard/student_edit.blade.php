@@ -15,7 +15,7 @@
                     <div class="row form-group">
                         <div class="col-md-4">
                             <label for="reg_no">Registration Number</label>
-                            <input value="{{$student->reg_no}}" type="text" name="reg_no" class="form-control" id="title" placeholder="CT202/0027/16">
+                            <input value="{{$student->reg_no}}" type="text" name="reg_no" class="form-control" id="title" placeholder="CT202/0027/16" readonly>
                         </div>
                         <div class="col-md-8">
                             <label for="student_name">Full name</label>
@@ -75,7 +75,6 @@
             <br>
             <button type="submit" class="btn btn-success">Submit</button>
             <a href="/student" class="btn btn-secondary float-right">Back</a>
-            <input type="text" id='test' name="">
     </form>
     <script type="text/javascript">
         window.onload(){function restrictFutureDate(){
