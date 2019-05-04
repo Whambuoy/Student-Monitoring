@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\personal_info;
+use App\Discipline;
+use App\Financials;
 
 class USSDController extends Controller
 {
@@ -38,7 +40,6 @@ class USSDController extends Controller
 		} else if (((count($user_responses)) == 2) && ($user_responses[1] !== "")){
 			foreach ($personal_info as $student) {
 	            if ($user_responses[1] == $student->parent_phone){
-	                $response = "END Registration number not found.";
 				    $response = "CON Please select an option: \n";
 				    $response .= "1. Discipline status \n";
 				    $response .= "2. Exam results \n";
@@ -52,13 +53,17 @@ class USSDController extends Controller
 
 
 		} else if($user_responses[2] == "1") { 
-		    $response = "END Your son has been suspended \n";
+			$student = Discipline::where('reg_no', $user_responses[0])->first();
+
+		    $response = "END Discipline status:\n" .$student->reg_no."\n" .$student->student_name ."\n" .$student->status;
 
 		} else if($user_responses[2] == "2") {
+
 		    $response = "END Exam results will be displayed here";
 
 		} else if($user_responses[2] == "3") {
-		    $response = "END Financial information of student";
+			$student = Financials::where('reg_no', $user_responses[0])->first();
+		    $response = "END Financial information\n" .$student->reg_no."\n" .$student->student_name ."\nAmount to be paid: " .$student->amount_to_be_paid ."\nAmount paid: " .$student->amount_paid ."\nBalance: " .$student->balance;
 		}
 
 		// Echo the response back to the API
