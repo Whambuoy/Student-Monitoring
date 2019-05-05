@@ -26,6 +26,10 @@ Route::post('/student/store', 'DashboardController@student_store');
 Route::get('/student/{id}/edit', 'DashboardController@student_edit');
 Route::post('/student/{id}/update', 'DashboardController@student_update');
 
+Route::get('students/in_session', 'DashboardController@in_session');
+Route::get('students/suspended', 'DashboardController@suspended');
+Route::get('students/expelled', 'DashboardController@expelled');
+
 Route::post('/student/search', 'DashboardController@student_search');
 Route::get('/student/restrictDuplicate', 'DashboardController@restrictDuplicate');
 

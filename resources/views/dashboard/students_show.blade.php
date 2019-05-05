@@ -1,7 +1,10 @@
 @extends('layouts.admin')
 @section('content')
 <div class="container">
-	<h1>Personal Information</h1>
+	<div class="row">
+		<h1>Students</h1>
+   		<a href="/student" class="btn btn-info ml-auto" style="padding-top: 12px; color: white;margin-right: 15px; margin-bottom: 5px"> <i class="fa fa-arrow-circle-down"></i>  Print</a>
+	</div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -11,8 +14,7 @@
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a href="/student/add"><button class="btn btn-outline-success my-2 my-sm-0" type="submit">Add student</button></a>
-    </form>
-      </li>
+     </li>
     </ul>
     <form class="form-inline my-2 my-lg-0" action="student/search" method="post">
     	{{ csrf_field() }}

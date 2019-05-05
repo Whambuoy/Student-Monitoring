@@ -172,6 +172,41 @@ class DashboardController extends Controller
     }
 
 
+    public function in_session(){
+        $status = 'In session';
+        $students_all = personal_info::all();
+        $disciplines = Discipline::all();
+        $in_session = $disciplines->filter(function($discipline){
+            return $discipline->status == "In session";
+        });
+
+        return view('dashboard.analytics')->with('statuses', $in_session)->with('students', $students_all)->with('status', $status);
+    }
+
+    public function suspended(){
+        $status = 'Suspended';
+        $students_all = personal_info::all();
+        $disciplines = Discipline::all();
+        $in_session = $disciplines->filter(function($discipline){
+            return $discipline->status == "Suspended";
+        });
+
+        return view('dashboard.analytics')->with('statuses', $in_session)->with('students', $students_all)->with('status', $status);      
+    }
+
+    public function expelled(){
+        $status = 'Expelled';
+        $students_all = personal_info::all();
+        $disciplines = Discipline::all();
+        $in_session = $disciplines->filter(function($discipline){
+            return $discipline->status == "Expelled";
+        });
+
+        return view('dashboard.analytics')->with('statuses', $in_session)->with('students', $students_all)->with('status', $status);      
+    }
+
+
+
     //Exam functions
     public function exams_show(){
         $exams = Exams::all();

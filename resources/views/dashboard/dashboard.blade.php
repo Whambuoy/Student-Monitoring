@@ -28,7 +28,7 @@
               <div class="icon">
                 <i class="ion ion-stats-bars"></i>
               </div>
-              <a href="/discipline" class="small-box-footer">View <i class="fa fa-arrow-circle-right"></i></a>
+              <a href="/students/in_session" class="small-box-footer">View <i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -43,7 +43,7 @@
               <div class="icon">
                 <i class="ion ion-person-add"></i>
               </div>
-              <a href="/discipline" class="small-box-footer">View <i class="fa fa-arrow-circle-right"></i></a>
+              <a href="/students/suspended" class="small-box-footer">View <i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
@@ -58,7 +58,7 @@
               <div class="icon">
                 <i class="ion ion-pie-graph"></i>
               </div>
-              <a href="/discipline" class="small-box-footer">View <i class="fa fa-arrow-circle-right"></i></a>
+              <a href="/students/expelled" class="small-box-footer">View <i class="fa fa-arrow-circle-right"></i></a>
             </div>
           </div>
           <!-- ./col -->
