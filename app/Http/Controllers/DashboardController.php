@@ -227,7 +227,7 @@ class DashboardController extends Controller
         $exam->unit_code8 = $request->input('unit_code8');
         $exam->unit_code9 = $request->input('unit_code9');
 
-        
+        /**
         $table_name = str_replace(' ', '_', $exam->exam_title);
         //create table of exam added
         $query = 'CREATE TABLE' .$table_name(reg_no var_char(50),
@@ -244,7 +244,7 @@ class DashboardController extends Controller
 
     );
         $create_table = DB::statement($query);
-
+**/
         $exam->save();
         return redirect('/exams')->with('success', 'Units successfully added!');
 

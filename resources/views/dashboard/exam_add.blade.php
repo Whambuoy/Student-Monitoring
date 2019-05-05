@@ -21,11 +21,7 @@
         <br>
 
         <script type="text/javascript">
-            function calc(){
-                var total_required = document.getElementById("total_required").value;
-                var total_paid = document.getElementById("total_paid").value;
-                document.getElementById("balance").value = total_required - total_paid;
-            }
+          
 
             function inputDisplay(str){
                 if (str.length == 0){
