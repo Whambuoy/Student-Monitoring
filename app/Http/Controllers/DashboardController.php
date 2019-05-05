@@ -8,6 +8,7 @@ use App\Financials;
 use App\Discipline;
 use App\Update;
 use App\Exams;
+use DB;
 class DashboardController extends Controller
 {
     /**
@@ -225,6 +226,24 @@ class DashboardController extends Controller
         $exam->unit_code7 = $request->input('unit_code7');
         $exam->unit_code8 = $request->input('unit_code8');
         $exam->unit_code9 = $request->input('unit_code9');
+
+        
+        $table_name = str_replace(' ', '_', $exam->exam_title);
+        //create table of exam added
+        $query = 'CREATE TABLE' .$table_name(reg_no var_char(50),
+                student_name var_char(50),
+                $exam->unit_code1 int(10),
+                $exam->unit_code2 int(10),
+                $exam->unit_code3 int(10),
+                $exam->unit_code4 int(10),
+                $exam->unit_code5 int(10),
+                $exam->unit_code6 int(10),
+                $exam->unit_code7 int(10),
+                $exam->unit_code8 int(10),
+                $exam->unit_code9 int(10),
+
+    );
+        $create_table = DB::statement($query);
 
         $exam->save();
         return redirect('/exams')->with('success', 'Units successfully added!');
