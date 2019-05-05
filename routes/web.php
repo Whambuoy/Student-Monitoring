@@ -69,4 +69,7 @@ Route::get('/updates/{id}/delete', 'DashboardController@updates_delete');
 
 Route::post('/api/ussd','USSDController@index');
 
+
+Route::get('/print/allStudents','ExportExcelController@allStudents');
+
 Route::get('/test', 'DashboardController@test');

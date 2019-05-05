@@ -3,7 +3,7 @@
 <div class="container">
 	<div class="row">
 		<h1>Students</h1>
-   		<a href="/student" class="btn btn-info ml-auto" style="padding-top: 12px; color: white;margin-right: 15px; margin-bottom: 5px"> <i class="fa fa-arrow-circle-down"></i>  Print</a>
+   		<a href="/print/allStudents" class="btn btn-info ml-auto" style="padding-top: 12px; color: white;margin-right: 15px; margin-bottom: 5px"> <i class="fa fa-arrow-circle-down"></i>  Print</a>
 	</div>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
