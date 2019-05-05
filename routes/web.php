@@ -30,7 +30,14 @@ Route::post('/student/search', 'DashboardController@student_search');
 Route::get('/student/restrictDuplicate', 'DashboardController@restrictDuplicate');
 
 #Exams URLs
+Route::get('/exams','DashboardController@exams_show');
 Route::get('/exams/add','DashboardController@exam_add');
+Route::post('/exams/store','DashboardController@exam_store');
+Route::get('/exams/add/units/{id}','DashboardController@exam_units_add');
+Route::post('/exams/add/units/{id}/store','DashboardController@exam_units_store');
+Route::get('/delete_exam/{id}', 'DashboardController@delete_exam');
+
+Route::get('/exam/restrictDuplicate', 'DashboardController@exam_restrictDuplicate');
 
 #Students Financials URLs
 Route::get('/financials', 'DashboardController@financials_show');

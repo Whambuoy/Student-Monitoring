@@ -7,6 +7,7 @@ use App\personal_info;
 use App\Financials;
 use App\Discipline;
 use App\Update;
+use App\Exams;
 class DashboardController extends Controller
 {
     /**
@@ -171,10 +172,87 @@ class DashboardController extends Controller
 
 
     //Exam functions
-
+    public function exams_show(){
+        $exams = Exams::all();
+        return view('dashboard.exams_show')->with('exams', $exams);
+    }
     public function exam_add(){
         return view('dashboard.exam_add');
     }
+
+    public function exam_store(Request $request){
+        //store added exam to exams table
+        $this->validate($request, [
+            'exam_title' =>'required',
+            'units_taken' => 'required'
+        ]);
+        $exam = new Exams;
+        $exam->exam_title = $request->input('exam_title');
+        $exam->units_taken = $request->input('units_taken');
+
+        $exam->unit_code1 = "N/A";
+        $exam->unit_code2 = "N/A";
+        $exam->unit_code3 = "N/A";
+        $exam->unit_code4 = "N/A";
+        $exam->unit_code5 = "N/A";
+        $exam->unit_code6 = "N/A";
+        $exam->unit_code7 = "N/A";
+        $exam->unit_code8 = "N/A";
+        $exam->unit_code9 = "N/A";
+
+        $exam->save();
+
+        return redirect('/exams/add/units/'.$exam->id)->with('success', 'Exam successfully added');
+
+
+    }
+
+    public function exam_units_add($id){
+        $exam = Exams::findOrFail($id);
+        $units_taken = (int)$exam->units_taken;
+        return view('dashboard.exam_units_add')->with('limit', $units_taken)->with('exam', $exam);
+    }
+
+    public function exam_units_store(Request $request, $id){
+        $exam = Exams::findOrFail($id);
+
+        $exam->unit_code1 = $request->input('unit_code1');
+        $exam->unit_code2 = $request->input('unit_code2');
+        $exam->unit_code3 = $request->input('unit_code3');
+        $exam->unit_code4 = $request->input('unit_code4');
+        $exam->unit_code5 = $request->input('unit_code5');
+        $exam->unit_code6 = $request->input('unit_code6');
+        $exam->unit_code7 = $request->input('unit_code7');
+        $exam->unit_code8 = $request->input('unit_code8');
+        $exam->unit_code9 = $request->input('unit_code9');
+
+        $exam->save();
+        return redirect('/exams')->with('success', 'Units successfully added!');
+
+    }
+
+    public function delete_exam($id){
+        $exam = Exams::findOrFail($id);
+        $exam->delete();
+        return redirect('exams')->with('error', 'Exam discarded');
+    }
+
+    public function exam_restrictDuplicate(Request $request){
+        $q = $request->input('q');
+
+        $reg_no = str_replace('-', ' ', $q);
+        $exams = Exams::all();
+        foreach ($exams as $exam) {
+            if ($exam->exam_title == $reg_no){
+                return "Exam title already exists";
+                break;
+
+            }
+        }
+    }
+
+
+
 
     public function financials_show(){
         $financials = Financials::all();
