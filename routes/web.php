@@ -74,7 +74,7 @@ Route::get('/updates/{id}/delete', 'DashboardController@updates_delete');
 
 
 Route::post('/api/ussd','USSDController@index');
-Route::get('/sendMessage', 'SMSController@test');
+Route::get('/sendMessage/{id}', 'SMSController@test');
 
 
 Route::get('/print/allStudents','ExportExcelController@allStudents');
