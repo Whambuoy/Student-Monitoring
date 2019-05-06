@@ -1,6 +1,9 @@
 @extends('layouts.admin')
 @section('content')
-	<h1>Exams</h1>
+	<div class="row">
+		<h1>Students</h1>
+   		<a href="/print/academicReports" class="btn btn-info ml-auto" style="padding-top: 12px; color: white;margin-right: 15px; margin-bottom: 5px"> <i class="fa fa-arrow-circle-down"></i>  Print</a>
+	</div>
 	<table class="table table-striped">
 	    <tr>
 	        <th>Registration number</th>
