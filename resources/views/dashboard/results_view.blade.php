@@ -15,8 +15,8 @@
 	        <th>CIT 3451</th>
 	        <th></th>
 	    </tr>
-		@if(count($exams)>0)
-			@foreach($exams as $exam)
+		@if(count($exam1)>0)
+			@foreach($exam1 as $exam1)
 				<tr>
 					<td>{{$exam1->reg_no}}</td>
 					<td>{{$exam1->student_name}}</td>

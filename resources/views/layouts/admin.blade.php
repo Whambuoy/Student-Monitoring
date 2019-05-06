@@ -111,26 +111,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <li class="nav-item">
                 <a href="/exams" class="nav-link active">
                   <i class="fa fa-bar-chart nav-icon"></i>
-                  <p>View exams</p>
+                  <p>Results</p>
                 </a>
               </li>
             </ul>
             <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/exams/add" class="nav-link active">
-                  <i class="fa fa-bar-chart nav-icon"></i>
-                  <p>Add exam</p>
-                </a>
-              </li>
-            </ul>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="/exams/add" class="nav-link active">
-                  <i class="fa fa-bar-chart nav-icon"></i>
-                  <p>Add results</p>
-                </a>
-              </li>
-            </ul>
           </li>
           <li class="nav-item">
             <a href="/discipline" class="nav-link">

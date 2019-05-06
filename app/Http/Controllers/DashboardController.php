@@ -7,7 +7,8 @@ use App\personal_info;
 use App\Financials;
 use App\Discipline;
 use App\Update;
-use App\Exams;
+use App\Exam1;
+
 use DB;
 class DashboardController extends Controller
 {
@@ -80,6 +81,7 @@ class DashboardController extends Controller
         $personal_info = new personal_info;
         $financial = new Financials;
         $discipline = new Discipline;
+        $results = new Exam1;
 
         $personal_info->reg_no = $request->input('reg_no');
         $personal_info->student_name = $request->input('student_name');
@@ -103,6 +105,20 @@ class DashboardController extends Controller
         $discipline->student_name = $personal_info->student_name;
         $discipline->status = "In session";
         $discipline->save();
+
+        #creates exa results for student
+        $results->reg_no = $personal_info->reg_no;
+        $results->student_name = $personal_info->student_name;
+        $results->unit_code1 = "N/A";
+        $results->unit_code2 = "N/A";
+        $results->unit_code3 = "N/A";
+        $results->unit_code4 = "N/A";
+        $results->unit_code5 = "N/A";
+        $results->unit_code6 = "N/A";
+        $results->unit_code7 = "N/A";
+        $results->unit_code8 = "N/A";
+        $results->unit_code9 = "N/A";
+        $results->save();
 
         $personal_info->save();
 
@@ -208,10 +224,23 @@ class DashboardController extends Controller
 
 
     //Exam functions
-    public function exams_show(){
-        $exams = Exams::all();
-        return view('dashboard.exams_show')->with('exams', $exams);
+    public function exams_results(){
+        $exam1 = Exam1::all();
+        return view('dashboard.results_view')->with('exam1', $exam1);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function exam_add(){
         return view('dashboard.exam_add');
     }
