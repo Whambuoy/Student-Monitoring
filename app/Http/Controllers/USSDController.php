@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\personal_info;
 use App\Discipline;
 use App\Financials;
+use App\Exam1;
 
 class USSDController extends Controller
 {
@@ -58,8 +59,9 @@ class USSDController extends Controller
 		    $response = "END Discipline status:\n" .$student->reg_no."\n" .$student->student_name ."\n" .$student->status;
 
 		} else if($user_responses[2] == "2") {
+			$student = Exam1::where('reg_no', $user_responses[0])->first();
 
-		    $response = "END Exam results will be displayed here";
+		    $response = "END Exam results:\n" .$student->reg_no."\n" .$student->student_name ."\nCIT 3451:" .$student->unit_code1 ."\nCIT 3451:" .$student->unit_code2 ."\nCIT 3451:" .$student->unit_code3 ."\nCCS 3350:" .$student->unit_code4 ."\nBFB 3252:" .$student->unit_code5 ."\nCIT 2252:" .$student->unit_code6 ."\nCIc 3454:" .$student->unit_code7 ."\nCIT 3453:" .$student->unit_code8 ."\nSPS 3300:" .$student->unit_code9;
 
 		} else if($user_responses[2] == "3") {
 			$student = Financials::where('reg_no', $user_responses[0])->first();

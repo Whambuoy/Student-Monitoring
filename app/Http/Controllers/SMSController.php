@@ -13,7 +13,7 @@ class SMSController extends Controller{
 		$sms         = new AfricasTalkingGateway($username, $apiKey);
 
 
-				// Set the numbers you want to send to in international format
+		// Set the numbers you want to send to in international format
 		$recipients = "+254720068917";
 
 		// Set your message
@@ -26,7 +26,8 @@ class SMSController extends Controller{
 		    $update->sent = "Yes";
 		    $update->save();
 
-		    print_r($result);
+		    //print_r($result);
+		    return redirect('/updates')->with('success', 'Update successfully sent');
 		} catch (Exception $e) {
 		    echo "Error: ".$e->getMessage();
 		}
