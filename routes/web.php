@@ -35,6 +35,12 @@ Route::get('/student/restrictDuplicate', 'DashboardController@restrictDuplicate'
 
 #Exams URLs
 Route::get('/exams','DashboardController@exams_results');
+Route::get('/exam/{id}/edit','DashboardController@exams_edit');
+Route::post('/exam/{id}/update','DashboardController@exams_update');
+
+
+
+
 Route::get('/exams/add','DashboardController@exam_add');
 Route::post('/exams/store','DashboardController@exam_store');
 Route::get('/exams/add/units/{id}','DashboardController@exam_units_add');
@@ -68,6 +74,7 @@ Route::get('/updates/{id}/delete', 'DashboardController@updates_delete');
 
 
 Route::post('/api/ussd','USSDController@index');
+Route::get('/sendMessage', 'SMSController@test');
 
 
 Route::get('/print/allStudents','ExportExcelController@allStudents');

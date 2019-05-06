@@ -229,6 +229,28 @@ class DashboardController extends Controller
         return view('dashboard.results_view')->with('exam1', $exam1);
     }
 
+     public function exams_edit($id){
+        $student = Exam1::findOrFail($id);
+        return view('dashboard.results_edit')->with('student', $student);
+    }   
+
+    public function exams_update(Request $request, $id){
+        $results = Exam1::findOrFail($id);
+        $results->reg_no = $request->input('reg_no');
+        $results->student_name = $request->input('student_name');
+        $results->unit_code1 = $request->input('unit_code1');
+        $results->unit_code2 = $request->input('unit_code2');
+        $results->unit_code3 = $request->input('unit_code3');
+        $results->unit_code4 = $request->input('unit_code4');
+        $results->unit_code5 = $request->input('unit_code5');
+        $results->unit_code6 = $request->input('unit_code6');
+        $results->unit_code7 = $request->input('unit_code7');
+        $results->unit_code8 = $request->input('unit_code8');
+        $results->unit_code9 = $request->input('unit_code9');
+        $results->save();
+
+        return redirect('/exams')->with('success', 'Results updated successfully');
+    }
 
 
 

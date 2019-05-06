@@ -13,6 +13,7 @@
 	        <th>CIC 3454</th>
 	        <th>CCS 3101</th>
 	        <th>CIT 3451</th>
+	        <th>SPS 3300</th>
 	        <th></th>
 	    </tr>
 		@if(count($exam1)>0)
