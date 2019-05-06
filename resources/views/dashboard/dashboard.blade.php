@@ -1,6 +1,15 @@
 @extends('layouts.admin')
 @section('content')
-<div class="container">
+      <div class="container">
+        <div class="jumbotron">
+        <h1 class="display-4">Hello, system admin</h1>
+        <p class="lead">Welcome to the Student Progress Monitoring System Dashboard</p>
+        <hr class="my-4">
+        <p>You can add a new update here <i class="fa fa-arrow-circle-down"></i></p>
+          <p class="lead">
+    <a class="btn btn-primary btn-lg" href="/updates" role="button">Add update</a>
+  </p>
+      </div>
         <div class="row">
           <div class="col-lg-3 col-6">
             <!-- small box -->

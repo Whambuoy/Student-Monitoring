@@ -34,9 +34,6 @@
                             <label for="course">Course of Study</label>
                                 <select name="course" class="form-control" id="category">
                                     <option></option>
-                                    <option>Bsc. Computer Science</option>
-                                    <option>Bsc. Computer Technology</option>
-                                    <option>Bsc. Information Technology</option>
                                     <option>Bsc. Computer Technology</option>
                                 </select>
                         </div>
@@ -48,7 +45,7 @@
                         </div>
                         <div class="form-group col-md-6">
                             <label for="date_of_admission">Date of Admission</label>
-                            <input name="date_of_admission" type="date" class="form-control" id="link">
+                            <input name="date_of_admission" type="date" max="2019-05-06" class="form-control" id="link">
                         </div>
                     </div>
                 </div>
