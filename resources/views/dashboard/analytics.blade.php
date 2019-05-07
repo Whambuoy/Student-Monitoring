@@ -3,7 +3,7 @@
 <div class="container">
 	<div class="row">
 		<h1>{{$status}}</h1>
-   		<a href="/print" class="btn btn-info ml-auto" style="padding-top: 12px; color: white;margin-right: 15px; margin-bottom: 5px"> <i class="fa fa-arrow-circle-down"></i>  Print</a>
+   		<a href="#" class="btn btn-info ml-auto" style="padding-top: 12px; color: white;margin-right: 15px; margin-bottom: 5px"> <i class="fa fa-arrow-circle-down"></i>  Print</a>
 	</div>
 	
 	<table class="table table-striped">

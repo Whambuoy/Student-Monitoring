@@ -19,7 +19,7 @@
                         </div>
                         <div class="form-group"> 
                             <label for="student_name">Full name</label>
-                            <input value="{{$student->student_name}}" pattern="[a-zA-Z]+[ ][a-zA-Z]+\s?[a-zA-Z]+" title="Enter a valid name eg: John Doe" type="text" name="student_name" class="form-control" id="title" placeholder="John Doe">
+                            <input value="{{$student->student_name}}" pattern="[a-zA-Z]+[ ][a-zA-Z]+\s?[a-zA-Z]+" title="Enter a valid name eg: John Doe" type="text" name="student_name" class="form-control" id="title" placeholder="John Doe" readonly="">
                         </div>
                     </div>
                 </div>
