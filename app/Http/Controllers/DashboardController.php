@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\personal_info;
+use App\Students;
 use App\Financials;
 use App\Discipline;
 use App\Update;
@@ -29,7 +29,7 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        $students = personal_info::all(); 
+        $students = Students::all(); 
         $disciplines = Discipline::all();
 
         $in_session = $disciplines->filter(function($discipline){
@@ -55,7 +55,7 @@ class DashboardController extends Controller
 
     public function students_show()
     {
-        $students = personal_info::all(); 
+        $students = Students::all(); 
         return view('dashboard.students_show')->with('students', $students);
     }
 
@@ -78,37 +78,37 @@ class DashboardController extends Controller
             'parent_phone' => 'required'
         ]);
  
-        $personal_info = new personal_info;
+        $Students = new Students;
         $financial = new Financials;
         $discipline = new Discipline;
         $results = new Exam1;
 
-        $personal_info->reg_no = $request->input('reg_no');
-        $personal_info->student_name = $request->input('student_name');
-        $personal_info->gender = $request->input('gender');
-        $personal_info->date_of_birth = $request->input('date_of_birth');
-        $personal_info->date_of_admission = $request->input('date_of_admission');
-        $personal_info->course = $request->input('course');
-        $personal_info->parent_name = $request->input('parent_name');
-        $personal_info->parent_phone = $request->input('parent_phone');
+        $Students->reg_no = $request->input('reg_no');
+        $Students->student_name = $request->input('student_name');
+        $Students->gender = $request->input('gender');
+        $Students->date_of_birth = $request->input('date_of_birth');
+        $Students->date_of_admission = $request->input('date_of_admission');
+        $Students->course = $request->input('course');
+        $Students->parent_name = $request->input('parent_name');
+        $Students->parent_phone = $request->input('parent_phone');
 
         #creates financial record of newly added student
-        $financial->reg_no = $personal_info->reg_no;
-        $financial->student_name = $personal_info->student_name;
+        $financial->reg_no = $Students->reg_no;
+        $financial->student_name = $Students->student_name;
         $financial->amount_to_be_paid = 0;
         $financial->amount_paid = 0;
         $financial->balance = 0;
         $financial->save();
 
         #creates discipline record of newly added student
-        $discipline->reg_no = $personal_info->reg_no;
-        $discipline->student_name = $personal_info->student_name;
+        $discipline->reg_no = $Students->reg_no;
+        $discipline->student_name = $Students->student_name;
         $discipline->status = "In session";
         $discipline->save();
 
         #creates exa results for student
-        $results->reg_no = $personal_info->reg_no;
-        $results->student_name = $personal_info->student_name;
+        $results->reg_no = $Students->reg_no;
+        $results->student_name = $Students->student_name;
         $results->unit_code1 = "N/A";
         $results->unit_code2 = "N/A";
         $results->unit_code3 = "N/A";
@@ -120,7 +120,7 @@ class DashboardController extends Controller
         $results->unit_code9 = "N/A";
         $results->save();
 
-        $personal_info->save();
+        $Students->save();
 
 
 
@@ -131,7 +131,7 @@ class DashboardController extends Controller
         $q = $request->input('q');
 
         $reg_no = str_replace('-', '/', $q);
-        $students = personal_info::all();
+        $students = Students::all();
 
         foreach ($students as $student) {
             if ($student->reg_no == $reg_no){
@@ -144,7 +144,7 @@ class DashboardController extends Controller
 
     public function student_edit($id)
     {
-        $student = personal_info::findOrFail($id);
+        $student = Students::findOrFail($id);
         return view('dashboard.student_edit')->with('student', $student);
     }
 
@@ -162,25 +162,25 @@ class DashboardController extends Controller
             'parent_phone' => 'required'
         ]);
 
-        $personal_info = personal_info::find($id);
+        $Students = Students::find($id);
 
-        $personal_info->reg_no = $request->input('reg_no');
-        $personal_info->student_name = $request->input('student_name');
-        $personal_info->gender = $request->input('gender');
-        $personal_info->date_of_birth = $request->input('date_of_birth');
-        $personal_info->date_of_admission = $request->input('date_of_admission');
-        $personal_info->course = $request->input('course');
-        $personal_info->parent_name = $request->input('parent_name');
-        $personal_info->parent_phone = $request->input('parent_phone');
+        $Students->reg_no = $request->input('reg_no');
+        $Students->student_name = $request->input('student_name');
+        $Students->gender = $request->input('gender');
+        $Students->date_of_birth = $request->input('date_of_birth');
+        $Students->date_of_admission = $request->input('date_of_admission');
+        $Students->course = $request->input('course');
+        $Students->parent_name = $request->input('parent_name');
+        $Students->parent_phone = $request->input('parent_phone');
 
-        $personal_info->save();
+        $Students->save();
         return redirect('student')->with('success', 'Student personal information updated successfully');
     }
 
     public function student_search(Request $request){
-        $personal_info = personal_info::all();
+        $Students = Students::all();
 
-        foreach ($personal_info as $student) {
+        foreach ($Students as $student) {
             if ($request->input('search-item') == $student->reg_no){
                 return view('dashboard.student_search')->with('student', $student);
             }
@@ -191,7 +191,7 @@ class DashboardController extends Controller
     public function in_session(){
         $status = 'In session';
         $url = 'in_session';
-        $students_all = personal_info::all();
+        $students_all = Students::all();
         $disciplines = Discipline::all();
         $in_session = $disciplines->filter(function($discipline){
             return $discipline->status == "In session";
@@ -202,7 +202,7 @@ class DashboardController extends Controller
 
     public function suspended(){
         $status = 'Suspended';
-        $students_all = personal_info::all();
+        $students_all = Students::all();
         $disciplines = Discipline::all();
         $in_session = $disciplines->filter(function($discipline){
             return $discipline->status == "Suspended";
@@ -213,7 +213,7 @@ class DashboardController extends Controller
 
     public function expelled(){
         $status = 'Expelled';
-        $students_all = personal_info::all();
+        $students_all = Students::all();
         $disciplines = Discipline::all();
         $in_session = $disciplines->filter(function($discipline){
             return $discipline->status == "Expelled";
@@ -366,7 +366,7 @@ class DashboardController extends Controller
     }
 
     public function financials_add(){
-        $students = personal_info::all();
+        $students = Students::all();
         $financials = Financials::all();
         return view('dashboard.financials_add')->with('students', $students)->with('financials', $financials);
     }
@@ -380,11 +380,11 @@ class DashboardController extends Controller
             'balance' => 'required'
         ]);
 
-        #stores student->id submitted through registration filled and uses it to get student from student(personal_info) table
+        #stores student->id submitted through registration filled and uses it to get student from student(Students) table
         $studentID = $request->input('reg_no');
 
         #student with corresponding id is retrieved so that their registration number can be retrieved for storage
-        $student = personal_info::findOrFail($studentID);
+        $student = Students::findOrFail($studentID);
 
         $financial = new Financials;
         $financial->reg_no = $student->reg_no;
@@ -421,7 +421,7 @@ class DashboardController extends Controller
     }
 
     public function getFinancialInfo($id){
-        $student = personal_info::findOrFail($id);
+        $student = Students::findOrFail($id);
         return $student->student_name;
     }
 

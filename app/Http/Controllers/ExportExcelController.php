@@ -9,7 +9,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\AllStudentsExport;
 use App\Exports\AcademicReports;
 use App\Exports\InSessionReport;
-use App\personal_info;
+use App\Students;
 
 
 class ExportExcelController extends Controller

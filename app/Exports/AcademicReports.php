@@ -1,7 +1,7 @@
 <?php
 namespace App\Exports;
 
-use App\personal_info;
+use App\Students;
 use App\Exam1;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\ShouldAutoSize;
