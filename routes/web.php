@@ -79,5 +79,6 @@ Route::get('/sendMessage/{id}', 'SMSController@test');
 
 Route::get('/print/allStudents','ExportExcelController@allStudents');
 Route::get('/print/academicReports','ExportExcelController@academicReports');
+Route::get('/print/in_session', 'ExportExcelController@inSession');
 
 Route::get('/test', 'DashboardController@test');

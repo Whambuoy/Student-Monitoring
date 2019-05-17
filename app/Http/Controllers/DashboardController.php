@@ -190,13 +190,14 @@ class DashboardController extends Controller
 
     public function in_session(){
         $status = 'In session';
+        $url = 'in_session';
         $students_all = personal_info::all();
         $disciplines = Discipline::all();
         $in_session = $disciplines->filter(function($discipline){
             return $discipline->status == "In session";
         });
 
-        return view('dashboard.analytics')->with('statuses', $in_session)->with('students', $students_all)->with('status', $status);
+        return view('dashboard.analytics')->with('statuses', $in_session)->with('students', $students_all)->with('status', $status)->with('url', $url);
     }
 
     public function suspended(){
